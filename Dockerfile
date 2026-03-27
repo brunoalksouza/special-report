@@ -4,6 +4,7 @@ WORKDIR /site
 COPY index.html /site/index.html
 COPY erectile-dysfunction/ /site/erectile-dysfunction/
 COPY diabetes/ /site/diabetes/
+COPY weight-loss/ /site/weight-loss/
 
 EXPOSE 8080
 
