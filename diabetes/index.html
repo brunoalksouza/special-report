@@ -23,22 +23,26 @@
       .sh-headline em { color:#1a7a6d; font-style:italic; }
       .sh-sub { font-family:"DM Sans",sans-serif; font-size:15px; color:#5c5650; max-width:440px; margin:0 auto; }
 
-      #sh-player-frame { max-width:1024px; margin:0 auto; background:#ffffff; border-radius:16px; padding:6px; box-shadow:0 8px 40px rgba(0,0,0,.08); }
-      #sh-player-frame .player-placeholder {
-        display:block; border-radius:12px; overflow:hidden;
-        aspect-ratio:16/9; background:linear-gradient(135deg,#f0eeeb 0%,#e8e5df 50%,#f0eeeb 100%);
-        position:relative; cursor:pointer;
+      .sh-cta-wrap { max-width:1024px; margin:0 auto; text-align:center; padding:0 24px; }
+      .sh-cta-btn {
+        display:inline-block; text-decoration:none;
+        font-family:"DM Sans",sans-serif; font-weight:700; font-size:18px; letter-spacing:.5px;
+        color:#fff; background:linear-gradient(135deg,#1a7a6d 0%,#22a08e 50%,#1a7a6d 100%);
+        background-size:200% auto; padding:22px 64px; border-radius:12px; border:none; cursor:pointer;
+        box-shadow:0 0 0 4px rgba(26,122,109,.15), 0 8px 32px rgba(26,122,109,.2);
+        transition:background-position .4s, box-shadow .3s, transform .2s;
+        position:relative; overflow:hidden;
       }
-      .player-placeholder:hover .play-circle { transform:translate(-50%,-50%) scale(1.08); }
-      .play-circle {
-        position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-        width:72px; height:72px; border-radius:50%;
-        background:rgba(26,122,109,.9);
-        display:flex; align-items:center; justify-content:center;
-        box-shadow:0 0 0 8px rgba(26,122,109,.15), 0 8px 32px rgba(0,0,0,.12);
-        transition:transform .25s, background .25s;
+      .sh-cta-btn::after {
+        content:''; position:absolute; top:0; left:-100%; width:60%; height:100%;
+        background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);
+        transform:skewX(-20deg); animation:sh-shimmer 3s ease-in-out infinite;
       }
-      .play-circle svg { width:26px; height:26px; fill:#fff; margin-left:3px; }
+      @keyframes sh-shimmer { 0%{left:-100%} 60%{left:140%} 100%{left:140%} }
+      .sh-cta-btn:hover { background-position:right center; transform:translateY(-2px); box-shadow:0 0 0 6px rgba(26,122,109,.2), 0 16px 40px rgba(26,122,109,.25); }
+      .sh-cta-btn:active { transform:translateY(1px); }
+      .sh-cta-arrow { margin-left:10px; display:inline-block; transition:transform .2s; }
+      .sh-cta-btn:hover .sh-cta-arrow { transform:translateX(4px); }
 
       .sh-below { max-width:1024px; margin:0 auto; padding:24px 24px 0; text-align:center; }
       .sh-trust-strip { display:flex; justify-content:center; gap:24px; font-family:"DM Sans",sans-serif; font-size:13px; color:#948d85; margin-bottom:20px; flex-wrap:wrap; }
@@ -71,14 +75,9 @@
       <p class="sh-sub">Watch the short video below to learn how it works.</p>
     </div>
 
-    <div id="sh-player-frame">
-      <!-- PLACEHOLDER: Replace this div with your VTurb/smartplayer embed -->
-      <a class="player-placeholder" href="YOUR_VSL_PAGE_URL_HERE" target="_blank" rel="noopener">
-        <div class="play-circle">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
-        </div>
+    <div class="sh-cta-wrap">
+      <a class="sh-cta-btn" href="YOUR_VSL_PAGE_URL_HERE" target="_blank" rel="noopener">
+        &#9654; Watch Now <span class="sh-cta-arrow">&rarr;</span>
       </a>
     </div>
 
